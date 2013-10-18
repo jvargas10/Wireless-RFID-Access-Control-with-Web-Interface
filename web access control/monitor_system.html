@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style type="text/css">
+			body{
+				margin: 20px 0px; padding: 0px;
+				background-color: #D3D3D3;
+			}
+			#content{
+				width:855px;
+				margin: 0 auto;
+	                }
+			#boton_abrir{
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				width:6em; 	
+			}
+
+		</style>
+		
+		<script type="text/javascript">
+			function Popup( url, height, width ){
+   	 			var windowProperties = "toolbar = 0, scrollbars = 1, location = 0, statusbar = 0, menubar = 0, resizable = 1, width = " + width + ", height = " + height + ", left = 0, top = 0";
+    				return window.open( url, "", windowProperties );
+			}
+		</script>
+
+		<title>Monitor System</title>
+	</head>
+	<body>
+		<div id="content">
+			<iframe src="http://your_web_cam_ip/" width="855px" height="670px" align="center"><p>Your browser should support iframes to get the video streaming</p></iframe> <!--this iframe points to IP Web CAM -->
+			<input id="boton_abrir" type="button" value="Abrir" onclick="javascript:Popup( 'monitor_system_handler.php?status=on', 1, 1 ); return false;" target="_blank"/>
+		</div>
+		
+	</body>
+</html>

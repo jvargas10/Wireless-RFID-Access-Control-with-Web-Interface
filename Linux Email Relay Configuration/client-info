@@ -1,0 +1,2 @@
+AuthInfo:smtp.gmail.com "U:From" "I:your_mail@gmail.com" "P:your_password" "M:PLAIN"
+AuthInfo:smtp.gmail.com:587 "U:From" "I:your_mail@gmail.com" "P:your_password" "M:PLAIN"

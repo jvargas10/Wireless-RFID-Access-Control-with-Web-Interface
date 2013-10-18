@@ -1,0 +1,141 @@
+/* Based partially on Matthew Carroll's keyboard accessible flavor of Suckerfish 
+ * Dropdowns by Patrick Griffiths and Dan Webb. 
+ * http://carroll.org.uk/sandbox/suckerfish/bones2.html
+ */
+/* ----[ LINKS ]----*/
+/* all menu links */
+#myNavigationMenu a, #myNavigationMenu_menuContainer a{
+	text-decoration:none;
+	display:block;
+}
+/* Just main menu links --[for non-javascript users this applies to submenu links as well]*/
+#myNavigationMenu a{
+	margin: 0;
+	float: left;
+	color: #447051;
+	font-family: "Trebuchet MS";
+	font-size: 16.0px;
+	padding: 10px 20px 10px 10px;
+	background-color: #eeffee;
+}
+#myNavigationMenu li+li a {
+	border-left: 1px solid #ffffff;
+}
+/* Just sub menu links */
+#myNavigationMenu_menuContainer a, #myNavigationMenu li li a{
+	text-align:left;
+	color: #447051;
+	font-family: "Trebuchet MS";
+	font-size: 13.0px;
+	padding: 10px 20px 10px 10px;
+	background-color: #ffffff;
+}
+#myNavigationMenu_menuContainer li+li a, #myNavigationMenu li li+li a{
+	border-top: 1px solid #eeeeee;
+}
+/* Main menu links on hover or focus */
+#myNavigationMenu a:hover, #myNavigationMenu a:focus, #myNavigationMenu a.mainMenuParentBtnFocused {
+	color: #eeffee;
+	background-color: #9fc2ad; 
+}
+/* Sub menu links on hover or focus */
+#myNavigationMenu_menuContainer a:hover, #myNavigationMenu_menuContainer a:focus, #myNavigationMenu_menuContainer a.subMenuParentBtnFocused{
+	color: #eeffee;
+	background-color: #9fc2ad;
+}
+/* Parent Sub Menu Links ---[javascript users only]*/
+#myNavigationMenu_menuContainer .subMenuParentBtn {
+	background-image: url('../Images/TSWNavigationMenuArrowSubRight_447051.png');
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+/* Parent Sub Menu Links on hover or focus ---[javascript users only]*/
+#myNavigationMenu_menuContainer .subMenuParentBtnFocused {
+	background-image: url('../Images/TSWNavigationMenuArrowSubRightHover_EEFFEE.png');
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+/* Parent Main Menu Links ---[javascript users only]*/
+#myNavigationMenu .mainMenuParentBtn {
+	background-image: url('../Images/TSWNavigationMenuArrowDown_447051.png');
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+/* Parent Main Menu Links on hover or focus ---[javascript users only]*/
+#myNavigationMenu .mainMenuParentBtnFocused {
+	background-image: url('../Images/TSWNavigationMenuArrowDownHover_EEFFEE.png');
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+/* ----[ OLs ULs, LIs, and DIVs ]----*/
+/* Submenu Outer Wrapper - each submenu is inside a div with this class - javascript users only */
+.smOW{ 
+	display:none; 
+	position: absolute; 
+	overflow:hidden; 
+	/*the 2px left and right padding lets you have a 1px border 
+	  on the ul or ol inside since overflow is set to hidden*/
+	padding:0 2px;
+	margin:0 0 0 -2px;
+}
+/* All ULs and OLs */
+#myNavigationMenu, #myNavigationMenu ul, #myNavigationMenu ol, #myNavigationMenu_menuContainer ul, #myNavigationMenu_menuContainer ol { 
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	line-height: 1.5em;
+}
+/* All submenu OLs and ULs */
+#myNavigationMenu ol, #myNavigationMenu ul, #myNavigationMenu_menuContainer ul, #myNavigationMenu_menuContainer ol {	
+	/*border around submenu goes here*/	 
+	border:1px solid #9fc2ad;
+	left:0;
+}
+/* List items in main menu --[for non-javascript users this applies to submenus as well]  */
+#myNavigationMenu li { 
+	/*great place to use a background image as a divider*/
+	display:block;
+	list-style:none;
+	position:relative;
+	float:left;
+}
+#myNavigationMenu_menuContainer li{
+	list-style: none;
+}
+/* main menu ul or ol elment */
+#myNavigationMenu{
+	display:block;
+	list-style:none;
+	margin:0 0 0 0;
+	z-index:5;
+	text-align: center;
+}
+#myNavigationMenu_menuContainer{	display:block; 	position:absolute;	top:0;	left:0;	width:100%;	height:0;	overflow:visible;	z-index:1000000000; }
+/* --------------------------[ The below is just for non-javscript users ]--------------------------*/
+#myNavigationMenu li li {
+	float:none; 
+}
+#myNavigationMenu li li a{ /* Just submenu links*/	
+	position:relative;
+	float:none;
+}
+#myNavigationMenu li ul { /* second-level lists */
+	position: absolute;
+	width: 10em;
+	margin-left: -1000em; /* using left instead of display to hide menus because display: none isn't read by screen readers */
+	margin-top:2.2em;
+}
+/* third-and-above-level lists */
+#myNavigationMenu li ul ul { margin: -1em 0 0 -1000em; }
+#myNavigationMenu li:hover ul ul {	margin-left: -1000em; }
+ /* lists nested under hovered list items */
+#myNavigationMenu li:hover ul{	margin-left: 0; }
+#myNavigationMenu li li:hover ul {	margin-left: 10em; margin-top:-2.5em;}
+/* extra positioning rules for limited noscript keyboard accessibility */
+#myNavigationMenu li a:focus + ul {  margin-left: 0; margin-top:2.2em; }
+#myNavigationMenu li li a:focus + ul { left:0; margin-left: 1010em; margin-top:-2.2em;}
+#myNavigationMenu li li a:focus {left:0;  margin-left:1000em; width:10em;  margin-top:0;}
+#myNavigationMenu li li li a:focus {left:0; margin-left: 2010em; width: 10em;  margin-top:-1em;}
+#myNavigationMenu li:hover a:focus{ margin-left: 0; }
+#myNavigationMenu li li:hover a:focus + ul { margin-left: 10em; }
+#myNavigationMenu ul, #myNavigationMenu ol { z-index: 1000000000; }

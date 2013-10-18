@@ -1,0 +1,1 @@
+This scripts generates a XLS File with data obtained from a temporary file named "report_checker".
